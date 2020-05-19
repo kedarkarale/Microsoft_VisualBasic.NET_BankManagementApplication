@@ -1,0 +1,420 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+GAD2
+</name>
+</assembly>
+<members>
+<member name="T:GAD2.BankDataSet2.customerDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:GAD2.BankDataSet2.customerRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:GAD2.BankDataSet2.customerRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:GAD2.BankDataSet2">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:GAD2.BankDataSet2TableAdapters.customerTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:GAD2.BankDataSet2TableAdapters.TableAdapterManager.UpdateUpdatedRows(GAD2.BankDataSet2,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet2TableAdapters.TableAdapterManager.UpdateInsertedRows(GAD2.BankDataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet2TableAdapters.TableAdapterManager.UpdateDeletedRows(GAD2.BankDataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:GAD2.BankDataSet2TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:GAD2.BankDataSet2TableAdapters.TableAdapterManager.UpdateAll(GAD2.BankDataSet2)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:GAD2.BankDataSet2TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:GAD2.BankDataSet2TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:GAD2.BankDataSet2TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:GAD2.BankDataSet5.empDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:GAD2.BankDataSet5.empRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:GAD2.BankDataSet5.empRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:GAD2.BankDataSet5">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:GAD2.BankDataSet5TableAdapters.empTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:GAD2.BankDataSet5TableAdapters.TableAdapterManager.UpdateUpdatedRows(GAD2.BankDataSet5,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet5TableAdapters.TableAdapterManager.UpdateInsertedRows(GAD2.BankDataSet5,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet5TableAdapters.TableAdapterManager.UpdateDeletedRows(GAD2.BankDataSet5,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:GAD2.BankDataSet5TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:GAD2.BankDataSet5TableAdapters.TableAdapterManager.UpdateAll(GAD2.BankDataSet5)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:GAD2.BankDataSet5TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:GAD2.BankDataSet5TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:GAD2.BankDataSet5TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:GAD2.BankDataSet.branchDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:GAD2.BankDataSet.branchRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:GAD2.BankDataSet.branchRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:GAD2.BankDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:GAD2.BankDataSetTableAdapters.branchTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:GAD2.BankDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(GAD2.BankDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(GAD2.BankDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(GAD2.BankDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:GAD2.BankDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:GAD2.BankDataSetTableAdapters.TableAdapterManager.UpdateAll(GAD2.BankDataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:GAD2.BankDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:GAD2.BankDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:GAD2.BankDataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:GAD2.BankDataSet1.branchDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:GAD2.BankDataSet1.branchRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:GAD2.BankDataSet1.branchRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:GAD2.BankDataSet1">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:GAD2.BankDataSet1TableAdapters.branchTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:GAD2.BankDataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(GAD2.BankDataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(GAD2.BankDataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(GAD2.BankDataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:GAD2.BankDataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:GAD2.BankDataSet1TableAdapters.TableAdapterManager.UpdateAll(GAD2.BankDataSet1)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:GAD2.BankDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:GAD2.BankDataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:GAD2.BankDataSet1TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:GAD2.BankDataSet4.empDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:GAD2.BankDataSet4.empRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:GAD2.BankDataSet4.empRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:GAD2.BankDataSet4">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:GAD2.BankDataSet4TableAdapters.empTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:GAD2.BankDataSet4TableAdapters.TableAdapterManager.UpdateUpdatedRows(GAD2.BankDataSet4,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet4TableAdapters.TableAdapterManager.UpdateInsertedRows(GAD2.BankDataSet4,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet4TableAdapters.TableAdapterManager.UpdateDeletedRows(GAD2.BankDataSet4,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:GAD2.BankDataSet4TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:GAD2.BankDataSet4TableAdapters.TableAdapterManager.UpdateAll(GAD2.BankDataSet4)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:GAD2.BankDataSet4TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:GAD2.BankDataSet4TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:GAD2.BankDataSet4TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:GAD2.BankDataSet3.empDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:GAD2.BankDataSet3.empRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:GAD2.BankDataSet3.empRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:GAD2.BankDataSet3">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:GAD2.BankDataSet3TableAdapters.empTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:GAD2.BankDataSet3TableAdapters.TableAdapterManager.UpdateUpdatedRows(GAD2.BankDataSet3,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet3TableAdapters.TableAdapterManager.UpdateInsertedRows(GAD2.BankDataSet3,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet3TableAdapters.TableAdapterManager.UpdateDeletedRows(GAD2.BankDataSet3,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:GAD2.BankDataSet3TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:GAD2.BankDataSet3TableAdapters.TableAdapterManager.UpdateAll(GAD2.BankDataSet3)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:GAD2.BankDataSet3TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:GAD2.BankDataSet3TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:GAD2.BankDataSet3TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:GAD2.BankDataSet6.empDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:GAD2.BankDataSet6.empRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:GAD2.BankDataSet6.empRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:GAD2.BankDataSet6">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:GAD2.BankDataSet6TableAdapters.empTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:GAD2.BankDataSet6TableAdapters.TableAdapterManager.UpdateUpdatedRows(GAD2.BankDataSet6,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet6TableAdapters.TableAdapterManager.UpdateInsertedRows(GAD2.BankDataSet6,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:GAD2.BankDataSet6TableAdapters.TableAdapterManager.UpdateDeletedRows(GAD2.BankDataSet6,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:GAD2.BankDataSet6TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:GAD2.BankDataSet6TableAdapters.TableAdapterManager.UpdateAll(GAD2.BankDataSet6)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:GAD2.BankDataSet6TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:GAD2.BankDataSet6TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:GAD2.BankDataSet6TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:GAD2.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:GAD2.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:GAD2.My.Resources.Resources._092fcaa0a0a63a1b16c5543fa7f335e6">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GAD2.My.Resources.Resources.branch">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GAD2.My.Resources.Resources.employ">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GAD2.My.Resources.Resources.images__1_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GAD2.My.Resources.Resources.login">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GAD2.My.Resources.Resources.login1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GAD2.My.Resources.Resources.trans">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GAD2.My.Resources.Resources.trans1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:GAD2.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

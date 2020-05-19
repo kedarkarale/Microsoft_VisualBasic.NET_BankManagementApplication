@@ -1,0 +1,589 @@
+//LOGIN FORM 
+
+Public Class Login
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim user As String
+        user = TextBox1.Text
+        Dim pass As String
+        pass = TextBox2.Text
+        If user = "user1" And pass = "pass1" Or user = "user2" And pass = "pass2" Then
+            MsgBox("Login successful", 0 + 64, "Login Portal")
+            Me.Hide()
+            Form2.Show()
+        Else : MsgBox("Login Unsuccessful. Please try again.")
+        End If
+    End Sub
+
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class
+
+//Homepage
+
+Public Class Form2
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Form3.Show()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Form5.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Form9.Show()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Form10.Show()
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class
+
+//Branch
+
+Imports System.Data
+Imports System.Data.OleDb
+
+Public Class Form3
+    Private conn As OleDbConnection
+    Private adpt As OleDbDataAdapter
+    Private cmd As OleDbCommandBuilder
+    Private myds As DataSet
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click '//ADD RECORD
+        Try
+            conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+            Dim command As String
+            command = "INSERT INTO branch(bid,bnm,bloc,bcd,bemp) VALUES (TextBox1,TextBox2,TextBox3,TextBox4,TextBox5)"
+            conn.Open()
+            Dim cmd As OleDbCommand
+            cmd = New OleDbCommand(command, conn)
+            cmd.Parameters.AddWithValue("bid", TextBox1.Text)
+            cmd.Parameters.AddWithValue("bnm", TextBox3.Text)
+            cmd.Parameters.AddWithValue("bloc", TextBox2.Text)
+            cmd.Parameters.AddWithValue("bcd", TextBox4.Text)
+            cmd.Parameters.AddWithValue("bemp", TextBox5.Text)
+            cmd.ExecuteNonQuery()
+        Catch exceptionObject As Exception
+            MessageBox.Show(exceptionObject.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Form4.Show()
+    End Sub
+End Class
+
+//Branch DG
+
+Imports System.Data
+Imports System.Data.OleDb
+
+Public Class Form4
+    Private conn As OleDbConnection
+    Private adpt As OleDbDataAdapter
+    Private cmd As OleDbCommandBuilder
+    Private myds As DataSet
+    Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'BankDataSet1.branch' table. You can move, or remove it, as needed.
+        Me.BranchTableAdapter.Fill(Me.BankDataSet.branch)
+        'TODO: This line of code loads data into the 'BankDataSet.branch' table. You can move, or remove it, as needed.
+        Me.BranchTableAdapter.Fill(Me.BankDataSet.branch)
+    End Sub
+    Private bitmap As Bitmap
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Form3.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+        Dim command As String
+        command = "Delete from [branch]  Where [bid] = " & TextBox1.Text & " "
+        conn.Open()
+        Dim cmd As OleDbCommand
+        cmd = New OleDbCommand(command, conn)
+        Try
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            TextBox1.Clear()
+            MsgBox("Operation Succeded", 0 + 64, "Operation Proceeder")
+        Catch exceptionObject As Exception
+            MessageBox.Show(exceptionObject.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+            conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+            Dim command As String
+        command = "Update [branch] set [bnm] = '" & TextBox2.Text & "', [bloc] = '" & TextBox3.Text & "',[bcd] = '" & TextBox4.Text & "',[bemp] = '" & TextBox5.Text & "' Where [bid] = " & TextBox1.Text & " "
+            conn.Open()
+            Dim cmd As OleDbCommand
+            cmd = New OleDbCommand(command, conn)
+            Try
+                cmd.ExecuteNonQuery()
+                cmd.Dispose()
+            TextBox1.Clear()
+            MsgBox("Operation Succeded", 0 + 64, "Operation Proceeder")
+            Catch exceptionObject As Exception
+                MessageBox.Show(exceptionObject.Message)
+            Finally
+                conn.Close()
+            End Try
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Form2.Show()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        BranchBindingSource.MoveFirst()
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        BranchBindingSource.MovePrevious()
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        BranchBindingSource.MoveNext()
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        BranchBindingSource.MoveLast()
+    End Sub
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim h As Integer = DataGridView1.Height
+        DataGridView1.Height = DataGridView1.RowCount * DataGridView1.RowTemplate.Height
+        bitmap = New Bitmap(Me.DataGridView1.Width, Me.DataGridView1.Height)
+        DataGridView1.DrawToBitmap(bitmap, New Rectangle(0, 0, Me.DataGridView1.Width, Me.DataGridView1.Height))
+        PrintPreviewDialog1.Document = PrintDocument1
+        PrintPreviewDialog1.PrintPreviewControl.Zoom = 1
+        PrintPreviewDialog1.ShowDialog()
+        DataGridView1.Height = h
+
+    End Sub
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        e.Graphics.DrawImage(bitmap, 0, 0)
+        Dim rec As RectangleF = e.PageSettings.PrintableArea
+        If Me.DataGridView1.Height = rec.Height > 0 Then e.HasMorePages = True
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub SearchToolStripButton_Click(sender As Object, e As EventArgs) Handles SearchToolStripButton.Click
+        Try
+            Me.BranchTableAdapter.Search(Me.BankDataSet.branch, BlocToolStripTextBox.Text & "%")
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub ToolStripLabel1_Click(sender As Object, e As EventArgs) Handles ToolStripLabel1.Click
+
+    End Sub
+End Class
+
+//Customer
+
+Imports System.Data
+Imports System.Data.OleDb
+
+Public Class Form5
+    Private conn As OleDbConnection
+    Private adpt As OleDbDataAdapter
+    Private cmd As OleDbCommandBuilder
+    Private myds As DataSet
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+            Dim command As String
+            command = "INSERT INTO customer(Name,DOB,Age,Type_of_account,Nationality,Address,Mobile_Num,Marital_Status,Income,Occupation,Religion,Category,Aadhar,Mail_ID) VALUES(TextBox1,TextBox2,TextBox3,TextBox4,TextBox5,TextBox6,TextBox7,TextBox8,TextBox9,TextBox10,TextBox11,TextBox12,TextBox13,TextBox14)"
+            conn.Open()
+            Dim cmd As OleDbCommand
+            cmd = New OleDbCommand(command, conn)
+            cmd.Parameters.AddWithValue("Name", TextBox1.Text)
+            cmd.Parameters.AddWithValue("DOB", TextBox3.Text)
+            cmd.Parameters.AddWithValue("Age", TextBox2.Text)
+            cmd.Parameters.AddWithValue("Type_of_account", TextBox4.Text)
+            cmd.Parameters.AddWithValue("Nationality", TextBox5.Text)
+            cmd.Parameters.AddWithValue("Address", TextBox6.Text)
+            cmd.Parameters.AddWithValue("Mobile_Num", TextBox7.Text)
+            cmd.Parameters.AddWithValue("Marital_Status", TextBox8.Text)
+            cmd.Parameters.AddWithValue("Income", TextBox9.Text)
+            cmd.Parameters.AddWithValue("Occupation", TextBox10.Text)
+            cmd.Parameters.AddWithValue("Religion", TextBox11.Text)
+            cmd.Parameters.AddWithValue("Category", TextBox12.Text)
+            cmd.Parameters.AddWithValue("Aadhar", TextBox13.Text)
+            cmd.Parameters.AddWithValue("Mail_ID", TextBox14.Text)
+            cmd.Parameters.AddWithValue("acc_id", TextBox15.Text)
+            cmd.ExecuteNonQuery()
+        Catch exceptionObject As Exception
+            MessageBox.Show(exceptionObject.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Form5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+        Dim command As String
+        command = "Update [customer] set [Name] = '" & TextBox1.Text & "', [DOB] = '" & TextBox2.Text & "',[Age] = '" & TextBox3.Text & "',[Type_Of_Account] = '" & TextBox4.Text & "',[Nationality] = '" & TextBox5.Text & "',[Address] = '" & TextBox6.Text & "',[Mobile_Num] = '" & TextBox7.Text & "',[Marital_Status] = '" & TextBox8.Text & "',[Income] = '" & TextBox9.Text & "',[Occupation] = '" & TextBox10.Text & "',[Religion] = '" & TextBox11.Text & "',[Category] = '" & TextBox12.Text & "',[Aadhar] = '" & TextBox13.Text & "',[Mail_ID] = '" & TextBox1.Text & "'Where [acc_id] = " & TextBox15.Text & " "
+        conn.Open()
+        Dim cmd As OleDbCommand
+        cmd = New OleDbCommand(command, conn)
+        Try
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            TextBox1.Clear()
+        Catch exceptionObject As Exception
+            MessageBox.Show(exceptionObject.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim num As Integer
+        Randomize()
+        num = Int(Rnd() * 500) + 1
+        TextBox15.Text = num
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Form6.Show()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        If OpenFileDialog1.ShowDialog = DialogResult.OK Then
+            PictureBox1.Load(Me.OpenFileDialog1.FileName)
+        Else
+            MsgBox("Select Image")
+        End If
+    End Sub
+
+    Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
+
+    End Sub
+
+    Private Sub Label17_Click(sender As Object, e As EventArgs) Handles Label17.Click
+
+    End Sub
+End Class
+
+
+//Customer DG
+Imports System.Data
+Imports System.Data.OleDb
+
+Public Class Form6
+    Private conn As OleDbConnection
+    Private adpt As OleDbDataAdapter
+    Private cmd As OleDbCommandBuilder
+    Private myds As DataSet
+    Private Sub Form6_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'BankDataSet2.customer' table. You can move, or remove it, as needed.
+        Me.CustomerTableAdapter.Fill(Me.BankDataSet2.customer)
+
+    End Sub
+    Private bitmap As Bitmap
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+        Dim command As String
+        command = "Delete from [customer]  Where [Mobile_Num] = " & TextBox1.Text & " "
+        conn.Open()
+        Dim cmd As OleDbCommand
+        cmd = New OleDbCommand(command, conn)
+        Try
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            TextBox1.Clear()
+            MsgBox("Operation Succeded", 0 + 64, "Operation Proceeder")
+        Catch exceptionObject As Exception
+            MessageBox.Show(exceptionObject.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        CustomerBindingSource.MoveLast()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        CustomerBindingSource.MoveFirst()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        CustomerBindingSource.MoveNext()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        CustomerBindingSource.MovePrevious()
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim h As Integer = DataGridView1.Height
+        DataGridView1.Height = DataGridView1.RowCount * DataGridView1.RowTemplate.Height
+        Bitmap = New Bitmap(Me.DataGridView1.Width, Me.DataGridView1.Height)
+        DataGridView1.DrawToBitmap(Bitmap, New Rectangle(0, 0, Me.DataGridView1.Width, Me.DataGridView1.Height))
+        PrintPreviewDialog1.Document = PrintDocument1
+        PrintPreviewDialog1.PrintPreviewControl.Zoom = 1
+        PrintPreviewDialog1.ShowDialog()
+        DataGridView1.Height = h
+    End Sub
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        e.Graphics.DrawImage(bitmap, 0, 0)
+        Dim rec As RectangleF = e.PageSettings.PrintableArea
+        If Me.DataGridView1.Height = rec.Height > 0 Then e.HasMorePages = True
+    End Sub
+
+    Private Sub AddressToolStripButton_Click(sender As Object, e As EventArgs) Handles AddressToolStripButton.Click
+        Try
+            Me.CustomerTableAdapter.Address(Me.BankDataSet2.customer, AddressToolStripTextBox.Text & "%")
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub ToolStripLabel1_Click(sender As Object, e As EventArgs) Handles ToolStripLabel1.Click
+
+    End Sub
+End Class
+
+// Trans
+
+Imports System.Data
+Imports System.Data.OleDb
+
+Public Class Form9
+    Private conn As OleDbConnection
+    Private adpt As OleDbDataAdapter
+    Private cmd As OleDbCommandBuilder
+    Private myds As DataSet
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+            Dim command As String
+            command = "INSERT INTO trans(bfnm,bknm,bfcd,accid,amt) VALUES (TextBox1,TextBox2,TextBox3,TextBox4,TextBox5)"
+            conn.Open()
+            Dim cmd As OleDbCommand
+            cmd = New OleDbCommand(command, conn)
+            cmd.Parameters.AddWithValue("bfnm", TextBox1.Text)
+            cmd.Parameters.AddWithValue("bknm", TextBox2.Text)
+            cmd.Parameters.AddWithValue("bfcd", TextBox3.Text)
+            cmd.Parameters.AddWithValue("accid", TextBox4.Text)
+            cmd.Parameters.AddWithValue("amt", TextBox5.Text)
+            MsgBox("Amount Deposited Successfully", 0 + 64, "Transaction Management")
+            cmd.ExecuteNonQuery()
+        Catch exceptionObject As Exception
+            MessageBox.Show(exceptionObject.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Try
+            conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+            Dim command As String
+            command = "INSERT INTO wid(accid,amt) VALUES (TextBox6,TextBox7)"
+            conn.Open()
+            Dim cmd As OleDbCommand
+            cmd = New OleDbCommand(command, conn)
+            cmd.Parameters.AddWithValue("accid", TextBox6.Text)
+            cmd.Parameters.AddWithValue("amt", TextBox7.Text)
+            MsgBox("Withdraway Successfull", 0 + 64, "Transaction Management")
+            cmd.ExecuteNonQuery()
+        Catch exceptionObject As Exception
+            MessageBox.Show(exceptionObject.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim num As Integer
+        Randomize()
+        num = Int(Rnd() * 50) + 1
+        TextBox8.Text = num
+    End Sub
+
+    Private Sub Form9_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class
+
+
+//Emp
+
+Imports System.Data
+Imports System.Data.OleDb
+
+Public Class Form10
+    Private conn As OleDbConnection
+    Private adpt As OleDbDataAdapter
+    Private cmd As OleDbCommandBuilder
+    Private myds As DataSet
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+            Dim command As String
+            command = "INSERT INTO emp(empnm,dept,sal,mob,mail) VALUES (TextBox1,TextBox2,TextBox3,TextBox4,TextBox5)"
+            conn.Open()
+            Dim cmd As OleDbCommand
+            cmd = New OleDbCommand(command, conn)
+            cmd.Parameters.AddWithValue("empnm", TextBox1.Text)
+            cmd.Parameters.AddWithValue("dept", TextBox3.Text)
+            cmd.Parameters.AddWithValue("sal", TextBox2.Text)
+            cmd.Parameters.AddWithValue("mob", TextBox4.Text)
+            cmd.Parameters.AddWithValue("mail", TextBox5.Text)
+            cmd.ExecuteNonQuery()
+        Catch exceptionObject As Exception
+            MessageBox.Show(exceptionObject.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+        Dim command As String
+        command = "Update [emp] set [empnm] = '" & TextBox1.Text & "',[dept] = '" & TextBox2.Text & "'[sal] = '" & TextBox3.Text & "'[mail] = '" & TextBox5.Text & "' Where [mob] = " & TextBox4.Text & " "
+        conn.Open()
+        Dim cmd As OleDbCommand
+        cmd = New OleDbCommand(command, conn)
+        Try
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            TextBox1.Clear()
+        Catch exceptionObject As Exception
+            MessageBox.Show(exceptionObject.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Form11.Show()
+    End Sub
+End Class
+
+
+//Emp DG
+
+Imports System.Data
+Imports System.Data.OleDb
+
+Public Class Form11
+    Private conn As OleDbConnection
+    Private adpt As OleDbDataAdapter
+    Private cmd As OleDbCommandBuilder
+    Private myds As DataSet
+    Private bitmap As Bitmap
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        conn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=C:\Users\Kedar\Documents\Visual Studio 2012\Projects\GAD2\Bank.mdb")
+        Dim command As String
+        command = "Delete from [emp]  Where [mob] = " & TextBox1.Text & " "
+        conn.Open()
+        Dim cmd As OleDbCommand
+        cmd = New OleDbCommand(command, conn)
+        Try
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            TextBox1.Clear()
+        Catch exceptionObject As Exception
+            MessageBox.Show(exceptionObject.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        EmpBindingSource.MoveFirst()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        EmpBindingSource.MoveLast()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        EmpBindingSource.MoveNext()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        EmpBindingSource.MovePrevious()
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim h As Integer = DataGridView1.Height
+        DataGridView1.Height = DataGridView1.RowCount * DataGridView1.RowTemplate.Height
+        bitmap = New Bitmap(Me.DataGridView1.Width, Me.DataGridView1.Height)
+        DataGridView1.DrawToBitmap(bitmap, New Rectangle(0, 0, Me.DataGridView1.Width, Me.DataGridView1.Height))
+        PrintPreviewDialog1.Document = PrintDocument1
+        PrintPreviewDialog1.PrintPreviewControl.Zoom = 1
+        PrintPreviewDialog1.ShowDialog()
+        DataGridView1.Height = h
+    End Sub
+
+    Private Sub Form11_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'BankDataSet6.emp' table. You can move, or remove it, as needed.
+        Me.EmpTableAdapter.Fill(Me.BankDataSet6.emp)
+        'TODO: This line of code loads data into the 'BankDataSet5.emp' table. You can move, or remove it, as needed.
+        Me.EmpTableAdapter.Fill(Me.BankDataSet6.emp)
+
+    End Sub
+
+    Private Sub DeptToolStripButton_Click(sender As Object, e As EventArgs) Handles DeptToolStripButton.Click
+        Try
+            Me.EmpTableAdapter.dept(Me.BankDataSet6.emp, DeptToolStripTextBox.Text & "%")
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+End Class
